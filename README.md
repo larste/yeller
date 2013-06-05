@@ -1,4 +1,4 @@
 yeller
 ======
 
-IRC Client written in java
+An IRC Client written in java
