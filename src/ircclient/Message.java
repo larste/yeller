@@ -8,11 +8,13 @@ public class Message {
     private String prefix;
     private String command;
     private String[] parameters;
+    private String msg;
 	
-    public Message(String prefix, String command, String[] parameters) {
+    public Message(String prefix, String command, String[] parameters, String msg) {
     	this.prefix = prefix;
 	this.command = command;
 	this.parameters = parameters;
+        this.msg = msg;
     }
 
     public String getPrefix() {
@@ -37,6 +39,16 @@ public class Message {
 
     public void setParameters(String[] parameters) {
     	this.parameters = parameters;
+    }
+    
+    public void setMsg(String msg)
+    {
+        this.msg = msg;
+    }
+    
+    public String getMsg()
+    {
+        return msg;
     }
 }
 

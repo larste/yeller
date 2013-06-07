@@ -157,14 +157,12 @@ public class Service {
 	if (trailing != null)
 	{
 		String[] tmp = new String[parameters.length + 1];
-		for (int i = 0; i < parameters.length; i++) {
-			tmp[i] = parameters[i];
-		}
+                System.arraycopy(parameters, 0, tmp, 0, parameters.length);
 		tmp[tmp.length - 1] = trailing;
 		parameters = tmp;
 	}
 		
-	Message m = new Message(prefix, command, parameters);
+	Message m = new Message(prefix, command, parameters, message);
 		
 	return m;
     }
