@@ -146,6 +146,7 @@ public class IrcClient {
                     break;
                     
                 case "PRIVMSG":
+                    Service.fetchMessage(line);
                     System.out.println("################# A priv msg was received");
                     break;
                     
@@ -185,7 +186,6 @@ public class IrcClient {
                     break;
                 
                 default:
-                    Service.fetchMessage(line);
                     System.out.println("################# Received command: " + command);
                     break;
             }
