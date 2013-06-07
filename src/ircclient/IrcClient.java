@@ -12,6 +12,7 @@ import javax.swing.text.DefaultCaret;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  *
@@ -131,26 +132,62 @@ public class IrcClient {
         // Keep reading lines from the server.
 
         while ((line = reader.readLine()) != null) {
+            
             prevLine = line;
-            if (line.toLowerCase().startsWith("ping ")) {
-                // We must respond to PINGs to avoid being disconnected.
-                writer.write("PONG " + line.substring(5) + "\r\n");
-                //writer.write("PRIVMSG " + channel + " :I got pinged!\r\n");
-                writer.flush();
-            } else if (line.toLowerCase().contains(channel + " " + ":" + channel)) {
-                Service.fetchTopic(line);
-            } else if (line.contains(nick + " = " + channel)) {
-                Service.fetchUsernames(line);
-            } else if (line.contains("QUIT :Client Quit")) {
-                Service.userLeaving(line);
-            } //        else if(line.contains("QUIT :Quit: Leaving")){
-            //                Service.userLeaving(line);
-            //            } 
-            else {
-                // Print the raw line received by the bot.
-                System.out.println(line);
-                Service.fetchMessage(line);
-                // mf.txtContent.append(line + "\r\n");
+            
+            Message message = Service.parse(line);
+            String command = message.getCommand();
+            switch(command) {
+                
+                case "PING":
+                    writer.write("PONG " + line.substring(5) + "\r\n");
+                    writer.flush();
+                    System.out.println("################# A ping was received");
+                    break;
+                    
+                case "PRIVMSG":
+                    System.out.println("################# A priv msg was received");
+                    break;
+                    
+                case "JOIN":
+                    System.out.println("################# A join was received");
+                    break;
+                    
+                case "PART":
+                    Service.userLeaving(line);
+                    System.out.println("################# A part msg was received");
+                    break;
+                    
+                case "MODE":
+                    System.out.println("################# A mode msg was received");
+                    break;
+                    
+                case "NOTICE":
+                    System.out.println("################# A notice msg was received");
+                    break;
+                
+                case "TOPIC":
+                    Service.fetchTopic(line);
+                    System.out.println("################# A topic msg was received");
+                    break;
+                    
+                case "KICK":
+                    System.out.println("################# A kick msg was received");
+                    break;
+                    
+                case "BAN":
+                    System.out.println("################# A ban msg was received");
+                    break;
+                
+                case "353":
+                    Service.fetchUsernames(line);
+                    System.out.println("################# A 353 msg was received");
+                    break;
+                
+                default:
+                    Service.fetchMessage(line);
+                    System.out.println("################# Received command: " + command);
+                    break;
             }
         }
     }

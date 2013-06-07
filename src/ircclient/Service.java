@@ -9,6 +9,7 @@ import static ircclient.IrcClient.listModel;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTML;
 
@@ -164,10 +165,6 @@ public class Service {
 	}
 		
 	Message m = new Message(prefix, command, parameters);
-	if (prefix != null)
-	{
-		m.setNick(prefix.substring(0, prefix.indexOf("!")));
-	}
 		
 	return m;
     }

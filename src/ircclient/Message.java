@@ -6,7 +6,6 @@ package ircclient;
  */
 public class Message {
     private String prefix;
-    private String nick;
     private String command;
     private String[] parameters;
 	
@@ -22,16 +21,6 @@ public class Message {
 
     public void setPrefix(String prefix) {
    	this.prefix = prefix;
-    }
-	
-    public String getNick()
-    {
-    	return nick;
-    }
-	
-    public void setNick(String nick)
-    {
-	this.nick = nick;
     }
 
     public String getCommand() {
