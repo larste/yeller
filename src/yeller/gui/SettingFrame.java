@@ -4,7 +4,7 @@
  */
 package yeller.gui;
 
-import yeller.IrcPreferences;
+import yeller.app.IrcPreferences;
 
 
 /**

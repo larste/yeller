@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package yeller;
+package yeller.app;
 
 import java.util.prefs.Preferences;
 
@@ -40,6 +36,4 @@ public class IrcPreferences {
         String s = prefs.get("channel", "");
         return s;
     }
-    
-
 }
