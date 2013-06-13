@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package yeller;
 
 import yeller.service.Service;
@@ -18,7 +14,7 @@ import javax.swing.text.html.HTMLEditorKit;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class Main {
 

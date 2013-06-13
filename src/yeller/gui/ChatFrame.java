@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package yeller.gui;
 
 import yeller.Main;
@@ -22,7 +18,7 @@ import javax.swing.text.BadLocationException;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class ChatFrame extends javax.swing.JFrame {
     public static ListModel myModel;

@@ -1,10 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package yeller.service;
 
-import yeller.Main;
 import yeller.Main;
 import yeller.model.Message;
 import yeller.gui.ChatFrame;
@@ -13,13 +8,11 @@ import static yeller.Main.listModel;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.html.HTML;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class Service {
 

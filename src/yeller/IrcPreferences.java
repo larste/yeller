@@ -4,7 +4,7 @@ import java.util.prefs.Preferences;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class IrcPreferences {
 
