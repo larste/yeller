@@ -187,6 +187,7 @@ public class IrcClient {
                 
                 default:
                     System.out.println("################# Received command: " + command);
+                    ChatFrame.txtServerOutput.append(message.getMsg() + "\r\n");
                     break;
             }
         }

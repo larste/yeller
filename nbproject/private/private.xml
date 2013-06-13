@@ -2,8 +2,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/lars/Projects/Java/yeller/src/ircclient/Message.java</file>
         <file>file:/home/lars/Projects/Java/yeller/src/ircclient/IrcClient.java</file>
         <file>file:/home/lars/Projects/Java/yeller/src/ircclient/Service.java</file>
+        <file>file:/home/lars/Projects/Java/yeller/src/ircclient/Message.java</file>
+        <file>file:/home/lars/Projects/Java/yeller/src/ircclient/ChatFrame.java</file>
     </open-files>
 </project-private>
