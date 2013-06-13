@@ -1,4 +1,4 @@
-package yeller.app;
+package yeller;
 
 import java.util.prefs.Preferences;
 
