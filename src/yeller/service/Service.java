@@ -169,5 +169,5 @@ public class Service {
 	Message m = new Message(prefix, command, parameters, message);
 		
 	return m;
-    }
+    }   
 }
