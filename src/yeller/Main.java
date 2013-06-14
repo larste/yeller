@@ -1,38 +1,36 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package ircclient;
+package yeller;
 
+import yeller.service.Service;
+import yeller.model.Message;
+import yeller.gui.ChatFrame;
+import yeller.gui.SettingFrame;
 import java.io.*;
 import java.net.*;
 import javax.swing.DefaultListModel;
 import javax.swing.text.BadLocationException;
-import javax.swing.text.DefaultCaret;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
-public class IrcClient {
+public class Main {
 
-    static ChatFrame mf;
-    static SettingFrame sf;
-    static DefaultListModel listModel;
-    static String[] people;
-    static String his;
-    static HTMLEditorKit kit = new HTMLEditorKit();
-    static HTMLDocument doc = new HTMLDocument();
-    static String channel;
-    static BufferedReader reader;
-    static BufferedWriter writer;
-    static String nick;
-    static String msg;
-    static DefaultListModel dlModel;
+    public static ChatFrame mf;
+    public static SettingFrame sf;
+    public static DefaultListModel listModel;
+    public static String[] people;
+    public static String his;
+    public static HTMLEditorKit kit = new HTMLEditorKit();
+    public static HTMLDocument doc = new HTMLDocument();
+    public static String channel;
+    public static BufferedReader reader;
+    public static BufferedWriter writer;
+    public static String nick;
+    public static String msg;
+    public static DefaultListModel dlModel;
 
     public static void main(String[] args) throws Exception {
 
@@ -187,6 +185,7 @@ public class IrcClient {
                 
                 default:
                     System.out.println("################# Received command: " + command);
+                    ChatFrame.txtServerOutput.append(message.getMsg() + "\r\n");
                     break;
             }
         }

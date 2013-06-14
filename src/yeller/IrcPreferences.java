@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package ircclient;
+package yeller;
 
 import java.util.prefs.Preferences;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class IrcPreferences {
 
@@ -40,6 +36,4 @@ public class IrcPreferences {
         String s = prefs.get("channel", "");
         return s;
     }
-    
-
 }

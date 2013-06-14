@@ -1,4 +1,4 @@
-package ircclient;
+package yeller.model;
 
 /**
  *

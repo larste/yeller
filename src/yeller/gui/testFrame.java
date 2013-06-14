@@ -1,12 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package ircclient;
+package yeller.gui;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class testFrame extends javax.swing.JFrame {
 

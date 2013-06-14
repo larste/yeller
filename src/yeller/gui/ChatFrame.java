@@ -1,9 +1,7 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package ircclient;
+package yeller.gui;
 
+import yeller.Main;
+import yeller.service.Service;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.io.IOException;
@@ -20,7 +18,7 @@ import javax.swing.text.BadLocationException;
 
 /**
  *
- * @author steffen
+ * @author Steffen Christensen
  */
 public class ChatFrame extends javax.swing.JFrame {
     public static ListModel myModel;
@@ -216,7 +214,7 @@ public class ChatFrame extends javax.swing.JFrame {
                 Service.sendPrivateMessage(myMsg, to);
             }
             Service.sendPublicMessage(myMsg);
-            IrcClient.displayMyMessage(myMsg);
+            Main.displayMyMessage(myMsg);
             txtChat.setText("");
         } catch (IOException | BadLocationException ex) {
             Logger.getLogger(ChatFrame.class.getName()).log(Level.SEVERE, null, ex);
