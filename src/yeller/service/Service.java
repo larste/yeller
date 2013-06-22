@@ -22,22 +22,19 @@ public class Service {
     public static void sendPublicMessage(String myMessage) throws IOException, BadLocationException {
 
         System.out.println("Message from Service! " + myMessage);
-        Main.writer.write("PRIVMSG " + Main.channel + " :" + myMessage + "\r\n");
-        Main.writer.flush();
-
+        Connection.writer.write("PRIVMSG " + Main.channel + " :" + myMessage + "\r\n");
+        Connection.writer.flush();
     }
 
     public static void sendPrivateMessage(String myMessage, String to) throws IOException {
         String s = to.substring(1);
-
-        Main.writer.write("PRIVMSG " + Main.channel + " " + s + " :" + myMessage + "\r\n");
-        Main.writer.flush();
+        Connection.writer.write("PRIVMSG " + Main.channel + " " + s + " :" + myMessage + "\r\n");
+        Connection.writer.flush();
     }
 
     public static void getOnlineUsers() throws IOException {
-
-        Main.writer.write("NAMES #datamatiker" + "\r\n");
-        Main.writer.flush();
+        Connection.writer.write("NAMES #datamatiker" + "\r\n");
+        Connection.writer.flush();
     }
 
     public static void fetchUsernames(String line) {
@@ -68,20 +65,14 @@ public class Service {
         System.out.println("Dette er msg:-------------> " + msg);
         if (msg.length() > 1000) {
             ChatFrame.txtServerOutput.append(msg);
-            Main.dlModel.addElement("<b><h2>"+userName+"</h2></b>");
+            Main.dlModel.addElement("<b><h2>" + userName + "</h2></b>");
             Main.dlModel.addElement(msg);
             ChatFrame.listContent.setModel(dlModel);
-//            IrcClient.kit.insertHTML(IrcClient.doc, IrcClient.doc.getLength(), "<b>" + userName + " " + "</b>" + msg.substring(0, 50), 0, 0, HTML.Tag.B);
-//            IrcClient.kit.insertHTML(IrcClient.doc, IrcClient.doc.getLength(), "<br>" + msg.substring(51, msg.length()), 0, 0, HTML.Tag.BR);
-//            //  kit.insertHTML(doc, doc.getLength(),  "", 0, 0, null);
-//            IrcClient.kit.insertHTML(IrcClient.doc, IrcClient.doc.getLength(), "<br>", 0, 0, HTML.Tag.BR);
         } else {
             ChatFrame.txtServerOutput.append(msg);
-            Main.dlModel.addElement("<b><h2>"+userName+"</h2></b>");
+            Main.dlModel.addElement("<b><h2>" + userName + "</h2></b>");
             Main.dlModel.addElement(msg);
             ChatFrame.listContent.setModel(dlModel);
-//            IrcClient.kit.insertHTML(IrcClient.doc, IrcClient.doc.getLength(), "<b>" + userName + "</b>" + msg, 0, 0, HTML.Tag.B);
-//            IrcClient.kit.insertHTML(IrcClient.doc, IrcClient.doc.getLength(), "<br>", 0, 0, HTML.Tag.BR);
         }
     }
 
@@ -106,61 +97,54 @@ public class Service {
         tempArr = line.split("!");
         String tempStr = tempArr[0];
         String user = tempStr.substring(1);
-        
+
         //remove the user from the array containing all online users
         List<String> list = Arrays.asList(arr);
         list.remove(user);
         arr = list.toArray(new String[list.size()]);
         Main.mf.listPeople.setModel(listModel);
-        listModel.removeElement(user);   
+        listModel.removeElement(user);
     }
-    
-    public static Message parse(String message)
-    {
-	String prefix = null;
-	String command = new String();
-	String trailing = null;
-	String[] parameters = new String[0];
 
-	int prefixEnd = -1;
-	int trailingStart = message.length();
-		
-	if (message.startsWith(":"))
-	{
-		prefixEnd = message.indexOf(" ");
-        	prefix = message.substring(1, prefixEnd);
-	}
-		
-	trailingStart = message.indexOf(" :");
-	if (trailingStart >= 0)
-	{
-		trailing = message.substring(trailingStart + 2);
-	} 
-	else 
-	{
-		trailingStart = message.length();
-	}
-	
-	int start = prefixEnd + 1;
-	int end = trailingStart;
-	String[] commandAndParameters = message.substring(start, end).split(" ");
-	command = commandAndParameters[0];
-		
-	if(commandAndParameters.length > 1)
-	{
-		parameters = Arrays.copyOfRange(commandAndParameters, 1, commandAndParameters.length, String[].class);
-	}
-		
-	if (trailing != null)
-	{
-		String[] tmp = new String[parameters.length + 1];
-                System.arraycopy(parameters, 0, tmp, 0, parameters.length);
-		tmp[tmp.length - 1] = trailing;
-		parameters = tmp;
-	}
-		
-	Message m = new Message(prefix, command, parameters, message);
-		
-	return m;
-    }   
+    public static Message parse(String message) {
+        String prefix = null;
+        String command = new String();
+        String trailing = null;
+        String[] parameters = new String[0];
+
+        int prefixEnd = -1;
+        int trailingStart = message.length();
+
+        if (message.startsWith(":")) {
+            prefixEnd = message.indexOf(" ");
+            prefix = message.substring(1, prefixEnd);
+        }
+
+        trailingStart = message.indexOf(" :");
+        if (trailingStart >= 0) {
+            trailing = message.substring(trailingStart + 2);
+        } else {
+            trailingStart = message.length();
+        }
+
+        int start = prefixEnd + 1;
+        int end = trailingStart;
+        String[] commandAndParameters = message.substring(start, end).split(" ");
+        command = commandAndParameters[0];
+
+        if (commandAndParameters.length > 1) {
+            parameters = Arrays.copyOfRange(commandAndParameters, 1, commandAndParameters.length, String[].class);
+        }
+
+        if (trailing != null) {
+            String[] tmp = new String[parameters.length + 1];
+            System.arraycopy(parameters, 0, tmp, 0, parameters.length);
+            tmp[tmp.length - 1] = trailing;
+            parameters = tmp;
+        }
+
+        Message m = new Message(prefix, command, parameters, message);
+
+        return m;
+    }
 }

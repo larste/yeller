@@ -2,13 +2,13 @@ package yeller.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import yeller.util.Receivable;
+import yeller.util.IReceivable;
 
 /**
  *
  * @author Lars Steen
  */
-public class User implements Receivable
+public class User implements IReceivable
 {
     private String nick;
     private String hostname;
