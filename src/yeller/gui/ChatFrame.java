@@ -62,6 +62,7 @@ public class ChatFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(77, 29, 53));
         setForeground(java.awt.Color.orange);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         panelHeader.setBackground(new java.awt.Color(221, 72, 20));
         panelHeader.setForeground(new java.awt.Color(254, 254, 254));
@@ -174,12 +175,12 @@ public class ChatFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtChat, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                        .addComponent(txtChat, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnGetUsers))
-                    .addComponent(jtabContent, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+                    .addComponent(jtabContent, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())

@@ -22,6 +22,7 @@ public class Service {
     public static void sendPublicMessage(String myMessage) throws IOException, BadLocationException {
 
         System.out.println("Message from Service! " + myMessage);
+        System.out.println(Connection.writer);
         Connection.writer.write("PRIVMSG " + Main.channel + " :" + myMessage + "\r\n");
         Connection.writer.flush();
     }
